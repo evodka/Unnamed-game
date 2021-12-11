@@ -8,7 +8,6 @@ public class Enemy : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D coll)
     {
-        Debug.Log("it works Enemy!");
         if (coll.gameObject.tag == "Bullet")
         {
             TakeDamage(1);
