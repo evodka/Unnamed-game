@@ -5,6 +5,7 @@ using System;
 
 public class Bullet : MonoBehaviour
 {
+    public int damage = 1;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,26 +15,12 @@ public class Bullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (transform.position.x > 100)
-        {
-            Destroy(gameObject);
-        } 
+    
     }
 
-    void OnCollisionEnter2D(Collision2D coll)
+
+    void OnBecameInvisible() //when bullets are out of camera view, destroy them
     {
-        Debug.Log("it works!");
-        if (coll.gameObject.tag == "Enemy")
-        {
-            Destroy(coll.gameObject);
-            Debug.Log("The object was destroyed");
-            /*if (coll.gameObject.tag == "Bullet")
-            {
-                Debug.Log("The object is a bullet");
-                Destroy(coll.gameObject);
-            }*/
-            Debug.Log("I have hit an enemy.");
-            Destroy(gameObject);
-        }
+        Destroy(gameObject);
     }
 }
