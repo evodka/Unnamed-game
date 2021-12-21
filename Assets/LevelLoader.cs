@@ -7,22 +7,28 @@ public class LevelLoader : MonoBehaviour
 {
 
     public Animator transition;
-
     public float transitionTime;
 
     // Update is called once per frame
     void Update()
     {
-        GameObject[] enemy = GameObject.FindGameObjectsWithTag("Enemy");
-        if (enemy == null || enemy.Length == 0)
-        {
-            LoadNextLevel();
+        if (SceneManager.GetActiveScene().buildIndex == 0){
+            GameObject[] enemy = GameObject.FindGameObjectsWithTag("Enemy");
+                if (enemy.Length == 0)
+            {
+                LoadNextLevel();
+            }
+        }
+
+        else if (SceneManager.GetActiveScene().buildIndex == 1){
+            GameObject[] boss = GameObject.FindGameObjectsWithTag("Boss");
+            if (boss.Length == 0){
+                LoadNextLevel();
+            }
         }
 
 
-        //Debug.Log(GameObject.FindGameObjectsWithTag("Enemy"));
     }
-
 
     public void LoadNextLevel()
     {

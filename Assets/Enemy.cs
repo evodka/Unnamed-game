@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Enemy : MonoBehaviour
 {
     public int ehealth = 3;
@@ -20,6 +21,7 @@ public class Enemy : MonoBehaviour
             Destroy(coll.gameObject); //destroying the bullets
         }*/
     }
+
 
     public void TakeDamage (int damage)
     {
